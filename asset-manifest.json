@@ -1,13 +1,13 @@
 {
-  "main.css": "/twitch-tv/static/css/main.93921712.chunk.css",
-  "main.js": "/twitch-tv/static/js/main.c61f212c.chunk.js",
-  "main.js.map": "/twitch-tv/static/js/main.c61f212c.chunk.js.map",
-  "static/js/1.724c6cf8.chunk.js": "/twitch-tv/static/js/1.724c6cf8.chunk.js",
-  "static/js/1.724c6cf8.chunk.js.map": "/twitch-tv/static/js/1.724c6cf8.chunk.js.map",
-  "runtime~main.js": "/twitch-tv/static/js/runtime~main.c0cd4d5b.js",
-  "runtime~main.js.map": "/twitch-tv/static/js/runtime~main.c0cd4d5b.js.map",
-  "static/css/main.93921712.chunk.css.map": "/twitch-tv/static/css/main.93921712.chunk.css.map",
-  "index.html": "/twitch-tv/index.html",
-  "precache-manifest.ed026a59b06b6ddf590cb8c270f36e09.js": "/twitch-tv/precache-manifest.ed026a59b06b6ddf590cb8c270f36e09.js",
-  "service-worker.js": "/twitch-tv/service-worker.js"
+  "files": {
+    "main.css": "/twitch-tv/static/css/main.4f3de897.css",
+    "main.js": "/twitch-tv/static/js/main.6e1d8dc4.js",
+    "index.html": "/twitch-tv/index.html",
+    "main.4f3de897.css.map": "/twitch-tv/static/css/main.4f3de897.css.map",
+    "main.6e1d8dc4.js.map": "/twitch-tv/static/js/main.6e1d8dc4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f3de897.css",
+    "static/js/main.6e1d8dc4.js"
+  ]
 }
