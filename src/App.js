@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { AddStreamForm } from './components/StreamForm'
 import { Streams } from './components/Streams'
 import { Button } from './components/Button'
 import { Header } from './components/Header'
 import './App.scss';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {   
@@ -13,38 +12,27 @@ class App extends React.Component {
       isLoaded: false,
       streams: []
     } 
-    this.handleAllButton = this.handleAllButton.bind(this)
-    this.handleOnlineButton = this.handleOnlineButton.bind(this)
-    this.handleOfflineButton = this.handleOfflineButton.bind(this)
-    this.handleButtonRemove = this.handleButtonRemove.bind(this)
-    this.handleAddButton = this.handleAddButton.bind(this)
   }
   componentDidMount() {
     allStreams.map(item => this.makeRequest(item))
   }
-  handleAllButton(e) {
+  handleAllButton = () => {
     this.setState({
       show: 'all'
     })
   }
-  handleOnlineButton(e) {
+  handleOnlineButton = () => {
     this.setState({
       show: 'online'
     })
   }
-  handleOfflineButton(e) {
+  handleOfflineButton = () => {
     this.setState({
       show: 'offline'
     })
   }
   makeRequest(user) {
-    fetch(`https://api.twitch.tv/kraken/streams/${user}`, {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Client-ID': 'rrpmmx09b1azju8jpwk6ugeei3uml9'
-      }
-    })
+    fetch(`https://twitch-proxy.freecodecamp.rocks/twitch-api/streams/${user}`,)
       .then(res => res.json())
         .then(
           (result) => {
@@ -63,7 +51,7 @@ class App extends React.Component {
                 logo: getRandomLogo(),
                 id: Math.random() * 1000
               }
-            
+
             this.setState(prevState => ({
               streams: [...prevState.streams, streamObj],
               isLoaded: prevState.streams.length + 1 === allStreams.length
@@ -74,25 +62,19 @@ class App extends React.Component {
           }
         )
   }
-  handleButtonRemove(stream) {
+  handleButtonRemove = (stream) => {
     allStreams = allStreams.filter(item => item !== stream)
     this.setState(prevState => ({
       streams: prevState.streams.filter(item => item.name !== stream)
     }))
   }
-  handleAddButton(user) {
+  handleAddButton = (user) => {
     if (allStreams.some(item => item === user)) {
       alert('This stream aldeady exists!')
       return
     }
 
-    fetch(`https://api.twitch.tv/kraken/users/${user}`, {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Client-ID': 'rrpmmx09b1azju8jpwk6ugeei3uml9'
-      }
-    })
+    fetch(`https://twitch-proxy.freecodecamp.rocks/twitch-api/streams/${user}`)
       .then(res => res.json())
         .then(
           (result) => {
@@ -144,9 +126,9 @@ class App extends React.Component {
   }
 }
 
-let allStreams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp"]
+let allStreams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"]
 
-const userDefaultIcons = ['https://static-cdn.jtvnw.net/user-default-pictures/cd618d3e-f14d-4960-b7cf-094231b04735-profile_image-300x300.jpg', 'https://static-cdn.jtvnw.net/user-default-pictures/cd618d3e-f14d-4960-b7cf-094231b04735-profile_image-300x300.jpg', 'https://static-cdn.jtvnw.net/user-default-pictures/49988c7b-57bc-4dee-bd4f-6df4ad215d3a-profile_image-300x300.jpg', 'https://static-cdn.jtvnw.net/user-default-pictures/bb97f7e6-f11a-4194-9708-52bf5a5125e8-profile_image-300x300.jpg', 'https://static-cdn.jtvnw.net/user-default-pictures/4cbf10f1-bb9f-4f57-90e1-15bf06cfe6f5-profile_image-300x300.jpg', 'https://static-cdn.jtvnw.net/user-default-pictures/27103734-3cda-44d6-a384-f2ab71e4bb85-profile_image-300x300.jpg']
+const userDefaultIcons = ['https://robohash.org/1', 'https://robohash.org/2', 'https://robohash.org/3', 'https://robohash.org/4', 'https://robohash.org/5', 'https://robohash.org/6'];
 
 const getRandomLogo = () => {
   return userDefaultIcons[Math.floor(Math.random() * (userDefaultIcons.length))]
