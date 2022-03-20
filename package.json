@@ -2,6 +2,7 @@
   "name": "twitch-tv",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://snyggme.github.io/twitch-tv/",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
